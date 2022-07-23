@@ -1,0 +1,22 @@
+#slider{
+    display: flex;
+    justify-content: center;
+}
+#images{
+    width: fit-content;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+}
+.img{
+    height: 10vw;
+    margin-right: 2vw;
+    display: none;
+}
+img{
+    height: 100%;
+}
+.arrow{
+    font-size: 3vw;
+    font-weight: bold;
+}

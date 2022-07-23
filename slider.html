@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="sstyles.css">
+</head>
+
+<body>
+    <div id="slider">
+        <div id="images">
+            <div class="arrow">&#8826;</div>
+            <div class="img im1" id="i1">
+                <img id="a1" src="i1.png" alt="">
+            </div>
+            <div class="img im2" id="i2">
+                <img id="a2" src="i2.png" alt="">
+            </div>
+            <div class="img im3" id="i3">
+                <img id="a3" src="i3.png" alt="">
+            </div>
+            <div class="img im4" id="i4">
+                <img id="a4" src="i4.png" alt="">
+            </div>
+            <div class="img im5" id="i5">
+                <img id="a5" src="i5.png" alt="">
+            </div>
+            <div class="img im6" id="i6">
+                <img id="a6" src="i6.png" alt="">
+            </div>
+            <div class="img im7" id="i7">
+                <img id="a7" src="i7.png" alt="">
+            </div>
+            <div class="img im8" id="i8">
+                <img id="a8" src="i8.png" alt="">
+            </div>
+            <div class="img im9" id="i9">
+                <img id="a9" src="i9.png" alt="">
+            </div>
+            <div class="img im10" id="i10">
+                <img id="a10" src="i10.png" alt="">
+            </div>
+            <div class="arrow">&#8827;</div>
+        </div>
+    </div>
+    <script>
+        var n = 10;// no of images
+        function original() {
+            var a1;
+            for (a1 = 1; a1 <= n; a1++)
+                document.getElementById('a' + a1).src = "i" + (a1) + ".png";
+        }
+
+        function chng1() {
+            document.getElementById('a' + 1).src = "i" + (n - 3) + ".png";
+            document.getElementById('a' + (n - 3)).src = "i" + (n - 2) + ".png";
+            document.getElementById('a' + (n - 2)).src = "i" + (n - 1) + ".png";
+            document.getElementById('a' + (n - 1)).src = "i" + n + ".png";
+            document.getElementById('a' + n).src = "i1.png";
+        }
+        function chng2() {
+            document.getElementById('a' + 1).src = "i" + (n - 2) + ".png";
+            document.getElementById('a' + 2).src = "i" + (n - 1) + ".png";
+            document.getElementById('a' + (n - 2)).src = "i" + n + ".png";
+            document.getElementById('a' + (n - 1)).src = "i1.png";
+            document.getElementById('a' + n).src = "i2.png";
+        }
+        function chng3() {
+            document.getElementById('a' + 1).src = "i" + (n - 1) + ".png";
+            document.getElementById('a' + 2).src = "i" + (n) + ".png";
+            document.getElementById('a' + (n)).src = "i3.png";
+            document.getElementById('a' + (n - 1)).src = "i2.png";
+            document.getElementById('a' + 3).src = "i1.png";
+        }
+        function chng4() {
+            document.getElementById('a' + 1).src = "i" + (n) + ".png";
+            document.getElementById('a' + 2).src = "i1.png";
+            document.getElementById('a' + (n)).src = "i4.png";
+            document.getElementById('a' + 4).src = "i3.png";
+            document.getElementById('a' + 3).src = "i2.png";
+        }
+        var left = 1;
+        var right = 5;
+        console.log(11 % 10);
+        function show(l, r) {
+            var l1 = l / 10;
+            var a;
+            var k;
+            for (a = l; a <= r; a++) {
+                if (a > n) {
+                    k = a % n;
+                    if (k == 0) { k = n; }
+                    document.getElementById('i' + k).style.display = 'block';
+                }
+                else {
+                    document.getElementById('i' + a).style.display = 'block';
+                }
+            }
+            if ((r - 1) % n == 0) {
+                chng1();
+            }
+            if ((r - 2) % n == 0) {
+                chng2();
+            }
+            if ((r - 3) % n == 0) {
+                chng3();
+            }
+            if ((r - 4) % n == 0) {
+                chng4();
+            }
+            setTimeout(gr, 1000);
+        }
+
+        show(left, right);
+        function gr() {
+            original();
+            var w;
+            if (left > n) {
+                w = left % n;
+                if (w == 0) { w = n; }
+                document.getElementById('i' + w).style.display = 'none';
+            }
+            else { document.getElementById('i' + left).style.display = 'none'; }
+            left++;
+            right++;
+            show(left, right);
+        }
+    </script>
+</body>
+
+</html>
